@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css?family=Viga');
+
+body {
+	background: none;
+    background: black;
+	font-family: 'Viga', sans-serif;
+	color: #444;
+}
+
+.container {
+	background-color: #000;
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	padding: 0;
+	/*padding-right: 20px;*/
+	font-size: 1.15em;
+}
+
+.col {
+	float: left;
+	height: 40px;
+	padding: 0 30px;
+}
+
+.col.name {
+	padding: 0 4em;
+}
+
+#follower-bar {
+	padding-top: 8px;
+}
+
+#subs-bar {
+	padding-top: 8px;
+}
+
+#followers, #subs {
+	position: relative;
+	top: -25px;
+	text-align: center;
+}
+
+#latest-follower, #latest-sub {
+	padding-top: 10px;
+}
+
+#latest-follower-current, #latest-sub-current {
+	margin-left: 10px;
+}
+
+#follower-current, #subs-current, #latest-follower-current, #latest-sub-current {
+	color: #aaa;
+	font-weight: bold;
+	font-size: 1.2em;
+}
+
+#brand {
+	padding-top: 6px;
+	color: #ddd;
+	font-size: 1.5em;
+	text-align: center;
+}
+
+#brand .fab.fa-twitch {
+	position: relative;
+	top: 2px;
+	left: -3px
+}
+
+#terminal-container {
+    position: fixed;
+    left: 55px;
+    top: 55px;
+    color: #fff;
+    font-size: 65em;
+    text-align: center;
+}
+
+#terminal {
+	color: #333;
+}
+
+#social-media {
+    position: fixed;
+    right: 0;
+    top: 700px;
+    padding: 0 140px;
+    color: #fff;
+    font-size: 3em;
+    text-align: center;
+}
+
+#social-media .fab {
+    font-size: 2em;
+}
+
+#social-media #social-media-brand {
+    padding-top: 20px;
+}
+
+#gray-bar {
+	height: 45px;
+	width: 100%;
+	background-color: #333;
+	position: fixed;
+	bottom: 0;
+}
