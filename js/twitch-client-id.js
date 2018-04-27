@@ -1,1 +1,0 @@
-var twitchClientId = 'your-twitch-client-id';
