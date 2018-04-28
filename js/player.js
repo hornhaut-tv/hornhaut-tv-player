@@ -8,26 +8,44 @@ $(function() {
 });
 
 function switchChannel() {
-    var channels = [
-        // HORNHAUT Streamers
-        'neobaldhornrich',
-        'banksider',
-        'ndee171',
-        'kokain_',
+    // Fade out old stream
+    $('#overlay').animate({
+        opacity: 1,
+    }, 500, function() {
+        var channels = [
+            // HORNHAUT Streamers
+            'neobaldhornrich',
+            'banksider',
+            'ndee171',
+            'kokain_',
 
-        // Non-HORNHAUT Streamers
-        'seyyn',
-        'bangpowwww',
-        'caarla',
-        '4thespada90',
-        'dieleonieten',
-        'grubsiud'
-    ];
+            // Non-HORNHAUT Streamers
+            'seyyn',
+            'bangpowwww',
+            'caarla',
+            '4thespada90',
+            'dieleonieten',
+            'grubsiud'
+        ];
 
-    var channel = channels[Math.floor(Math.random()*channels.length)];
-    console.log(channel);
-    outputChannel(channel);
-    setTimeout(switchChannel, 30000);
+        // Pick random stream
+        var channel = channels[Math.floor(Math.random()*channels.length)];
+
+        // Change stream in DOM
+        outputChannel(channel);
+        
+        // $('#overlay').trigger('removeOverlay');
+
+        // Fade in again
+        setTimeout(function() {
+            $('#overlay').animate({
+                opacity: 0,
+            }, 500, function() {
+                // And recursively recall channel change
+                setTimeout(switchChannel, 30000);
+            });
+        }, 1000);
+    });
 }
 
 function outputChannel(channel) {
@@ -40,5 +58,6 @@ function outputChannel(channel) {
         $iframe.attr('src', url);   
         return false;
     }
+
     return true;
 }
