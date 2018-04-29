@@ -1,5 +1,6 @@
 var channels = [
     // HORNHAUT Streamers
+    'hornhauttv',
     'neobaldhornrich',
     'banksider',
     'ndee171',
@@ -29,8 +30,8 @@ $(function() {
 
 function switchChannel() {
     // Fade out old stream
-    $('#overlay').animate({
-        opacity: 1,
+    $('#overlay').append('<img id="scene-switch" src="img/scene-switch.gif" />').css('z-index', '999').animate({
+        opacity: 1
     }, 500, function() {
         // Pick random stream
         var channel = 'hornhauttv';
@@ -45,20 +46,22 @@ function switchChannel() {
         // Fade in again
         setTimeout(function() {
             $('#overlay').animate({
-                opacity: 0,
-            }, 500, function() {
+                opacity: 0
+            }, 1500, function() {
+                $('#overlay').css('z-index', '-999');
+                $('#scene-switch').remove();
+
                 // And recursively recall channel change
                 setTimeout(switchChannel, 30000); // 30 seconds
             });
-        }, 1000);
+        }, 3500);
     });
 }
 
 function outputChannel(channel) {
-    var urlBase = 'https://player.twitch.tv/?volume=0&muted&channel=';
+    var urlBase = 'https://player.twitch.tv/?volume=0.3&muted&channel=';
     var url = urlBase + channel;
     var $channelName = $('#channel-name').text(channel);
-    // $channelName.
     var $iframe = $('#container > iframe');
     if($iframe.length) {
         $iframe.attr('src', url);   
